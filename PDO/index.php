@@ -1,11 +1,11 @@
 <?php
 
-require 'Task.php';
-require 'functions.php';
-require 'database/connection.php';
+$database = require 'core/bootstrap.php';
 
-$pdo = Connection::make();
+$router = new Router;
 
-$tasks = fetchAllTasks($pdo);
+require 'routes.php';
 
-require 'index.view.php';
+$uri = trim($_SERVER['REQUEST_URI'], '/');
+
+require $router->direct($uri);
