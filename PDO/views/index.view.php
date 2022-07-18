@@ -1,9 +1,15 @@
 <?php require('partials/header.php'); ?>
+
+<?php foreach ($users as $user) : ?>
+
+    <li><?= $user->name; ?></li>
+
+<?php endforeach; ?>
+
 <h1>Submit Your Name</h1>
 
-<form method="GET" action="/names">
+<form method="POST" action="/names">
     <input name="name"></input>
-
     <button type="submit">Submit</button>
 </form>
 
